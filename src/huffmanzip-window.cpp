@@ -17,6 +17,7 @@
  */
 
 #include "huffmanzip-window.h"
+#include <iostream>
 
 HuffmanzipWindow::HuffmanzipWindow()
 	: Glib::ObjectBase("HuffmanzipWindow")
@@ -27,8 +28,17 @@ HuffmanzipWindow::HuffmanzipWindow()
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
 	builder->get_widget("label", label);
+	builder->get_widget("startBtn", startBtn);
+	builder->get_widget("fileSelect", fileSelect);
+	builder->get_widget("destDir", destDir);
+	builder->get_widget("isReverse", isReverse);
 	add(*label);
 	label->show();
 	set_titlebar(*headerbar);
 	headerbar->show();
+	startBtn->signal_clicked().connect(sigc::mem_fun(*this,&HuffmanzipWindow::startBtnClicked));
+}
+
+void HuffmanzipWindow::startBtnClicked(){
+	std::cout << "ok" << std::endl;
 }
