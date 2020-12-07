@@ -22,6 +22,9 @@
 #include <gtkmm/headerbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/window.h>
+#include <gtkmm/button.h>
+#include <gtkmm/filechooserbutton.h>
+#include <gtkmm/checkbutton.h>
 
 class HuffmanzipWindow : public Gtk::Window
 {
@@ -31,5 +34,9 @@ public:
 private:
 	Gtk::HeaderBar *headerbar;
 	Gtk::Label *label;
+	Gtk::Button *startBtn;
+	Gtk::FileChooserButton *fileSelect, *destDir;
+	Gtk::CheckButton *isReverse;
 	Glib::RefPtr<Gtk::Builder> builder;
+	void startBtnClicked();
 };
