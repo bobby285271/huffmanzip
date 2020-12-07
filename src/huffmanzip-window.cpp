@@ -40,5 +40,7 @@ HuffmanzipWindow::HuffmanzipWindow()
 }
 
 void HuffmanzipWindow::startBtnClicked(){
-	std::cout << "ok" << std::endl;
+	std::cout << isReverse->get_active() << std::endl;
+	const Glib::ustring str = "Processing";
+	label->set_text(str);
 }
