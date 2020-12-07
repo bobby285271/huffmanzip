@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkHeaderBar" id="headerbar">
-    <property name="can_focus">False</property>
-    <property name="title">Hello, World!</property>
-    <property name="show_close_button">True</property>
+    <property name="can-focus">False</property>
+    <property name="title">Compresser</property>
+    <property name="show-close-button">True</property>
+    <child>
+      <object class="GtkButton" id="startBtn">
+        <property name="label" translatable="yes">Start</property>
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkFileChooserButton" id="fileSelect">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="create-folders">False</property>
+        <property name="title" translatable="yes"/>
+      </object>
+      <packing>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkFileChooserButton">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="action">select-folder</property>
+        <property name="title" translatable="yes"/>
+      </object>
+      <packing>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="isReverse">
+        <property name="label" translatable="yes">Reverse</property>
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">False</property>
+        <property name="draw-indicator">True</property>
+      </object>
+      <packing>
+        <property name="position">3</property>
+      </packing>
+    </child>
   </object>
   <object class="GtkLabel" id="label">
-    <property name="can_focus">False</property>
-    <property name="label">Hello, World!</property>
+    <property name="can-focus">False</property>
+    <property name="label">Useless area?</property>
     <attributes>
       <attribute name="weight" value="bold"/>
       <attribute name="scale" value="2"/>
