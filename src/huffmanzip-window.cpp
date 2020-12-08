@@ -46,4 +46,6 @@ void HuffmanzipWindow::startBtnClicked(){
 	destDir->set_sensitive(false);
 	isReverse->set_sensitive(false);
 	label->set_text("Processing");
+	std::cout << fileSelect->get_filename() << std::endl;
+	std::cout << destDir->get_filename() << std::endl;
 }
