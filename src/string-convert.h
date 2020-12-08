@@ -1,5 +1,5 @@
-#ifndef stringConvert_H
-#define stringConvert_H
+#ifndef string_convert_H
+#define string_convert_H
 
 #include <string>
 #include <bitset>

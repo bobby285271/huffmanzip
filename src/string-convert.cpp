@@ -1,4 +1,4 @@
-#include "stringConvert.h"
+#include "string-convert.h"
 
 std::string binToChar(std::string &s)
 {
