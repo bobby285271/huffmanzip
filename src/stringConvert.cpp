@@ -3,7 +3,7 @@
 std::string binToChar(std::string &s)
 {
     std::string t;
-    for (int i = 0; i < s.size(); i += 8)
+    for (size_t i = 0; i < s.size(); i += 8)
     {
         std::bitset<8> a(s.substr(i, 8));
         t += a.to_ulong();
