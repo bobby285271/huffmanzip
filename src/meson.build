@@ -1,4 +1,5 @@
 huffmanzip_sources = [
+  'stringConvert.cpp',
   'main.cpp',
   'huffmanzip-window.cpp',
 ]
