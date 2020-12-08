@@ -18,6 +18,7 @@
 
 #include "huffmanzip-window.h"
 #include <iostream>
+#include <glib/gi18n.h>
 
 HuffmanzipWindow::HuffmanzipWindow()
 	: Glib::ObjectBase("HuffmanzipWindow")
@@ -25,6 +26,7 @@ HuffmanzipWindow::HuffmanzipWindow()
 	, headerbar(nullptr)
 	, label(nullptr)
 {
+	setlocale(LC_ALL, "zh_CN.UTF-8");
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
 	builder->get_widget("label", label);
@@ -32,6 +34,7 @@ HuffmanzipWindow::HuffmanzipWindow()
 	builder->get_widget("fileSelect", fileSelect);
 	builder->get_widget("destDir", destDir);
 	builder->get_widget("isReverse", isReverse);
+	destDir->set_filename("./");
 	add(*label);
 	label->show();
 	set_titlebar(*headerbar);
@@ -45,7 +48,7 @@ void HuffmanzipWindow::startBtnClicked(){
 	fileSelect->set_sensitive(false);
 	destDir->set_sensitive(false);
 	isReverse->set_sensitive(false);
-	label->set_text("Processing");
+	label->set_text("初始化");
 	std::cout << fileSelect->get_filename() << std::endl;
 	std::cout << destDir->get_filename() << std::endl;
 }
