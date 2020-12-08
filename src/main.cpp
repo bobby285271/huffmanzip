@@ -28,8 +28,8 @@ on_activate (Glib::RefPtr<Gtk::Application> app)
 	if (!window) {
 		window = std::make_unique<HuffmanzipWindow>();
 		window->property_application() = app;
-		window->property_default_width() = 600;
-		window->property_default_height() = 300;
+		window->property_default_width() = 800;
+		window->property_default_height() = 100;
 		app->add_window(*window);
 	}
 
