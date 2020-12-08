@@ -5,9 +5,6 @@
   <object class="GtkHeaderBar" id="headerbar">
     <property name="can-focus">False</property>
     <property name="show-close-button">True</property>
-    <child type="title">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkButton" id="startBtn">
         <property name="label" translatable="yes">Start</property>
