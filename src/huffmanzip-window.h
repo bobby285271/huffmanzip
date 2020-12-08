@@ -35,7 +35,8 @@ private:
 	Gtk::HeaderBar *headerbar;
 	Gtk::Label *label;
 	Gtk::Button *startBtn;
-	Gtk::FileChooserButton *fileSelect, *destDir;
+	Gtk::FileChooserButton *fileSelect;
+	Gtk::FileChooserButton *destDir;
 	Gtk::CheckButton *isReverse;
 	Glib::RefPtr<Gtk::Builder> builder;
 	void startBtnClicked();

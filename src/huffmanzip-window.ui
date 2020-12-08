@@ -26,7 +26,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkFileChooserButton">
+      <object class="GtkFileChooserButton" id="destDir">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="action">select-folder</property>
