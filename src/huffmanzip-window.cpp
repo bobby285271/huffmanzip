@@ -18,37 +18,52 @@
 
 #include "huffmanzip-window.h"
 #include <iostream>
+#include <fstream>
 #include <glib/gi18n.h>
 
 HuffmanzipWindow::HuffmanzipWindow()
 	: Glib::ObjectBase("HuffmanzipWindow")
 	, Gtk::Window()
 	, headerbar(nullptr)
-	, label(nullptr)
+	, box(nullptr)
 {
 	setlocale(LC_ALL, "zh_CN.UTF-8");
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
+	builder->get_widget("box", box);
 	builder->get_widget("label", label);
 	builder->get_widget("startBtn", startBtn);
 	builder->get_widget("fileSelect", fileSelect);
 	builder->get_widget("destDir", destDir);
 	builder->get_widget("isReverse", isReverse);
+	builder->get_widget("progressbar", progressbar);
 	destDir->set_filename("./");
-	add(*label);
+	progressbar->set_visible(false);
+	add(*box);
 	label->show();
 	set_titlebar(*headerbar);
 	headerbar->show();
 	startBtn->signal_clicked().connect(sigc::mem_fun(*this,&HuffmanzipWindow::startBtnClicked));
 }
 
-void HuffmanzipWindow::startBtnClicked(){
+void HuffmanzipWindow::startBtnClicked()
+{
+	progressbar->set_visible(true);
+	progressbar->set_fraction(0.1);
 	std::cout << isReverse->get_active() << std::endl;
 	startBtn->set_sensitive(false);
 	fileSelect->set_sensitive(false);
 	destDir->set_sensitive(false);
 	isReverse->set_sensitive(false);
-	label->set_text("初始化");
+	label->set_text(fileSelect->get_filename());
+	auto fff = fileSelect->get_filename() + ".out";
+	const char *ff = fff.c_str();
+	std::cout << ff << std::endl;
+	std::ofstream Un(ff);
+	if(!Un){std::cout << "1" << std::endl;}
+	else std::cout << "11111" << std::endl;
+	Un << 111 << std::endl;
+	Un.close();
 	std::cout << fileSelect->get_filename() << std::endl;
 	std::cout << destDir->get_filename() << std::endl;
 }
