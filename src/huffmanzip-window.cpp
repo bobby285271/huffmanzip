@@ -17,9 +17,6 @@
  */
 
 #include "huffmanzip-window.h"
-#include <iostream>
-#include <fstream>
-#include <glib/gi18n.h>
 
 HuffmanzipWindow::HuffmanzipWindow()
 	: Glib::ObjectBase("HuffmanzipWindow")

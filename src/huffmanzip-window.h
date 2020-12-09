@@ -27,6 +27,9 @@
 #include <gtkmm/checkbutton.h>
 #include <gtkmm/progressbar.h>
 #include <gtkmm/box.h>
+#include <iostream>
+#include <fstream>
+#include <glib/gi18n.h>
 
 class HuffmanzipWindow : public Gtk::Window
 {
