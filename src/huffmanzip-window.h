@@ -25,6 +25,8 @@
 #include <gtkmm/button.h>
 #include <gtkmm/filechooserbutton.h>
 #include <gtkmm/checkbutton.h>
+#include <gtkmm/progressbar.h>
+#include <gtkmm/box.h>
 
 class HuffmanzipWindow : public Gtk::Window
 {
@@ -35,9 +37,10 @@ private:
 	Gtk::HeaderBar *headerbar;
 	Gtk::Label *label;
 	Gtk::Button *startBtn;
-	Gtk::FileChooserButton *fileSelect;
-	Gtk::FileChooserButton *destDir;
+	Gtk::FileChooserButton *fileSelect, *destDir;
+	Gtk::ProgressBar *progressbar;
 	Gtk::CheckButton *isReverse;
 	Glib::RefPtr<Gtk::Builder> builder;
+	Gtk::Box *box;
 	void startBtnClicked();
 };
