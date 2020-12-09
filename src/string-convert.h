@@ -16,13 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef string_convert_H
-#define string_convert_H
+#pragma once
 
 #include <string>
 #include <bitset>
 
 std::string binToChar(std::string &s);
 std::string charToBin(std::string &s);
-
-#endif
