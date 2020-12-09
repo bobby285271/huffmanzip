@@ -20,12 +20,13 @@
 #include <memory>
 
 static void
-on_activate (Glib::RefPtr<Gtk::Application> app)
+on_activate(Glib::RefPtr<Gtk::Application> app)
 {
 	// Get the current window. If there is not one, we will create it.
 	static std::unique_ptr<Gtk::Window> window;
 
-	if (!window) {
+	if (!window)
+	{
 		window = std::make_unique<HuffmanzipWindow>();
 		window->property_application() = app;
 		window->property_default_width() = 800;
@@ -37,8 +38,7 @@ on_activate (Glib::RefPtr<Gtk::Application> app)
 	window->present();
 }
 
-int
-main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int ret;
 
