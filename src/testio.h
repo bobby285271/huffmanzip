@@ -1,4 +1,4 @@
-/* encode.h
+/* testio.h
  *
  * Copyright 2020 Bobby Rong
  *
@@ -19,31 +19,7 @@
 #pragma once
 
 #include <fstream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <map>
-#include <queue>
-#include <stack>
 #include <cstring>
-#include "node.h"
-#include "string-convert.h"
 
-class orgTree
-{
-private:
-    std::string file_str;
-    std::map<char, int64_t> char_cnt_table;
-    std::vector<node> tree_node_set;
-    std::map<char, std::string> huffman_code_to_char;
-    void read_origin_file(
-        const char *origin_file);
-    void build_huffman_tree();
-    void initial_huffman_code_to_char();
-
-public:
-    orgTree(
-        const char *origin_file);
-    void get_encode_result(
-        const char *dest_file);
-};
+bool file_ifstream_check(const char *file_to_test);
+bool file_ofstream_check(const char *file_to_test);

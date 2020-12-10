@@ -55,7 +55,7 @@ void HuffmanzipWindow::startBtnClicked()
 	fileselect->set_sensitive(false);
 	destdir->set_sensitive(false);
 	isreverse->set_sensitive(false);
-	label->set_text("初始化中");
+	label->set_text("请稍候");
 	progressbar->set_visible(true);
 	progressbar->set_fraction(0.1);
 	std::string originFilePath = fileselect->get_filename();
@@ -67,33 +67,26 @@ void HuffmanzipWindow::startBtnClicked()
 	std::reverse(realFileName.begin(), realFileName.end());
 	std::string destFilePath = destdir->get_filename() + '/' + realFileName + ".out";
 
-	if (file_ifstream_check(originFilePath.c_str()) && file_ofstream_check(destFilePath.c_str()))
+	try
 	{
-		try
+		if (isreverse->get_active())
 		{
-			if (isreverse->get_active())
-			{
-				destTree tree(originFilePath.c_str());
-				tree.get_decode_result(destFilePath.c_str());
-			}
-			else
-			{
-				orgTree tree(originFilePath.c_str());
-				tree.get_encode_result(destFilePath.c_str());
-			}
-			label->set_text("完成");
+			destTree tree(originFilePath.c_str());
+			tree.get_decode_result(destFilePath.c_str());
 		}
-		catch (const char *e)
+		else
 		{
-			label->set_text("出现未知错误");
-			std::cerr << e << std::endl;
+			orgTree tree(originFilePath.c_str());
+			tree.get_encode_result(destFilePath.c_str());
 		}
-		catch (const std::exception &e)
-		{
-			label->set_text("出现未知错误");
-		}
+		label->set_text("完成");
 	}
-	else
+	catch (const char *e)
+	{
+		label->set_text("出现未知错误");
+		std::cerr << e << std::endl;
+	}
+	catch (const std::exception &e)
 	{
 		label->set_text("出现未知错误");
 	}
