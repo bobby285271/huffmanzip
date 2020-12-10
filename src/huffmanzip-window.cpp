@@ -17,50 +17,71 @@
  */
 
 #include "huffmanzip-window.h"
+#include <iostream>
 
 HuffmanzipWindow::HuffmanzipWindow()
-	: Glib::ObjectBase("HuffmanzipWindow")
-	, Gtk::Window()
-	, headerbar(nullptr)
-	, box(nullptr)
+	: Glib::ObjectBase("HuffmanzipWindow"),
+	  Gtk::Window(),
+	  headerbar(nullptr),
+	  label(nullptr),
+	  startbtn(nullptr),
+	  fileselect(nullptr),
+	  destdir(nullptr),
+	  progressbar(nullptr),
+	  isreverse(nullptr),
+	  box(nullptr)	  
 {
 	setlocale(LC_ALL, "zh_CN.UTF-8");
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
 	builder->get_widget("box", box);
 	builder->get_widget("label", label);
-	builder->get_widget("startBtn", startBtn);
-	builder->get_widget("fileSelect", fileSelect);
-	builder->get_widget("destDir", destDir);
-	builder->get_widget("isReverse", isReverse);
+	builder->get_widget("startbtn", startbtn);
+	builder->get_widget("fileselect", fileselect);
+	builder->get_widget("destdir", destdir);
+	builder->get_widget("isreverse", isreverse);
 	builder->get_widget("progressbar", progressbar);
-	destDir->set_filename("./");
+	destdir->set_filename("./");
 	progressbar->set_visible(false);
 	add(*box);
 	label->show();
 	set_titlebar(*headerbar);
 	headerbar->show();
-	startBtn->signal_clicked().connect(sigc::mem_fun(*this,&HuffmanzipWindow::startBtnClicked));
+	startbtn->signal_clicked().connect(sigc::mem_fun(*this, &HuffmanzipWindow::startBtnClicked));
 }
 
 void HuffmanzipWindow::startBtnClicked()
 {
+	startbtn->set_sensitive(false);
+	fileselect->set_sensitive(false);
+	destdir->set_sensitive(false);
+	isreverse->set_sensitive(false);
+	label->set_text("初始化中");
 	progressbar->set_visible(true);
 	progressbar->set_fraction(0.1);
-	std::cout << isReverse->get_active() << std::endl;
-	startBtn->set_sensitive(false);
-	fileSelect->set_sensitive(false);
-	destDir->set_sensitive(false);
-	isReverse->set_sensitive(false);
-	label->set_text(fileSelect->get_filename());
-	auto fff = fileSelect->get_filename() + ".out";
-	const char *ff = fff.c_str();
-	std::cout << ff << std::endl;
-	std::ofstream Un(ff);
-	if(!Un){std::cout << "1" << std::endl;}
-	else std::cout << "11111" << std::endl;
-	Un << 111 << std::endl;
-	Un.close();
-	std::cout << fileSelect->get_filename() << std::endl;
-	std::cout << destDir->get_filename() << std::endl;
+	std::string originFilePath = fileselect->get_filename();
+	std::string realFileName;
+	for (auto i = originFilePath.size() - 1; originFilePath[i] != '/'; i--)
+	{
+		realFileName += originFilePath[i];
+	}
+	std::reverse(realFileName.begin(), realFileName.end());
+	std::string destFilePath = destdir->get_filename() + '/' + realFileName + ".out";
+	std::cout << destFilePath;
+	if (isreverse->get_active())
+	{
+		destTree tree(originFilePath.c_str());
+		tree.get_decode_result(destFilePath.c_str());
+	}
+	else
+	{
+		orgTree tree(originFilePath.c_str());
+		tree.get_encode_result(destFilePath.c_str());
+	}
+	startbtn->set_sensitive(true);
+	fileselect->set_sensitive(true);
+	destdir->set_sensitive(true);
+	isreverse->set_sensitive(true);
+	progressbar->set_visible(false);
+	label->set_text("完成");
 }

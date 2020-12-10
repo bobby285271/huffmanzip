@@ -37,7 +37,7 @@
     <property name="can-focus">False</property>
     <property name="show-close-button">True</property>
     <child>
-      <object class="GtkButton" id="startBtn">
+      <object class="GtkButton" id="startbtn">
         <property name="label" translatable="yes">开始</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -45,7 +45,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkFileChooserButton" id="fileSelect">
+      <object class="GtkFileChooserButton" id="fileselect">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="create-folders">False</property>
@@ -56,7 +56,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkFileChooserButton" id="destDir">
+      <object class="GtkFileChooserButton" id="destdir">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="action">select-folder</property>
@@ -68,7 +68,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkCheckButton" id="isReverse">
+      <object class="GtkCheckButton" id="isreverse">
         <property name="label" translatable="yes">逆向</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>

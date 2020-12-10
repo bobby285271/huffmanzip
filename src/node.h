@@ -22,11 +22,13 @@
 
 struct node
 {
-    char name;
-    int id, val, parent;
-    std::pair<int, int> child;
+    char char_name;
+    int64_t id;
+    int64_t cnt_value;
+    int64_t parent_node_id;
+    int64_t child_node_id[2];
     bool operator<(const node &a) const
     {
-        return val < a.val;
+        return cnt_value > a.cnt_value;
     }
 };
