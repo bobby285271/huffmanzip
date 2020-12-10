@@ -31,6 +31,7 @@
 #include <cassert>
 #include "encode.h"
 #include "decode.h"
+#include "testio.h"
 
 class HuffmanzipWindow : public Gtk::Window
 {

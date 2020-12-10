@@ -17,7 +17,6 @@
  */
 
 #include "decode.h"
-#include <iostream>
 
 destTree::destTree(const char *origin_file)
 {

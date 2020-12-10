@@ -1,5 +1,6 @@
 huffmanzip_sources = [
   'string-convert.cpp',
+  'testio.cpp',
   'encode.cpp',
   'decode.cpp',
   'main.cpp',

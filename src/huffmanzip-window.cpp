@@ -17,7 +17,6 @@
  */
 
 #include "huffmanzip-window.h"
-#include <iostream>
 
 HuffmanzipWindow::HuffmanzipWindow()
 	: Glib::ObjectBase("HuffmanzipWindow"),
@@ -29,7 +28,7 @@ HuffmanzipWindow::HuffmanzipWindow()
 	  destdir(nullptr),
 	  progressbar(nullptr),
 	  isreverse(nullptr),
-	  box(nullptr)	  
+	  box(nullptr)
 {
 	setlocale(LC_ALL, "zh_CN.UTF-8");
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
@@ -61,27 +60,34 @@ void HuffmanzipWindow::startBtnClicked()
 	progressbar->set_fraction(0.1);
 	std::string originFilePath = fileselect->get_filename();
 	std::string realFileName;
-	for (auto i = originFilePath.size() - 1; originFilePath[i] != '/'; i--)
+	for (size_t i = originFilePath.size() - 1; originFilePath[i] != '/'; i--)
 	{
 		realFileName += originFilePath[i];
 	}
 	std::reverse(realFileName.begin(), realFileName.end());
 	std::string destFilePath = destdir->get_filename() + '/' + realFileName + ".out";
-	std::cout << destFilePath;
-	if (isreverse->get_active())
+
+	if (file_ifstream_check(originFilePath.c_str()) && file_ofstream_check(destFilePath.c_str()))
 	{
-		destTree tree(originFilePath.c_str());
-		tree.get_decode_result(destFilePath.c_str());
+		if (isreverse->get_active())
+		{
+			destTree tree(originFilePath.c_str());
+			tree.get_decode_result(destFilePath.c_str());
+		}
+		else
+		{
+			orgTree tree(originFilePath.c_str());
+			tree.get_encode_result(destFilePath.c_str());
+		}
+		label->set_text("完成");
 	}
 	else
 	{
-		orgTree tree(originFilePath.c_str());
-		tree.get_encode_result(destFilePath.c_str());
+		label->set_text("出现未知错误");
 	}
 	startbtn->set_sensitive(true);
 	fileselect->set_sensitive(true);
 	destdir->set_sensitive(true);
 	isreverse->set_sensitive(true);
 	progressbar->set_visible(false);
-	label->set_text("完成");
 }
