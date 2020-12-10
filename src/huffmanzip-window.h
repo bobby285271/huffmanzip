@@ -27,6 +27,7 @@
 #include <gtkmm/checkbutton.h>
 #include <gtkmm/progressbar.h>
 #include <gtkmm/box.h>
+#include <glib.h>
 #include <glib/gi18n.h>
 #include <iostream>
 #include "encode.h"

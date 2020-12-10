@@ -30,7 +30,11 @@ HuffmanzipWindow::HuffmanzipWindow()
 	  isreverse(nullptr),
 	  box(nullptr)
 {
-	setlocale(LC_ALL, "zh_CN.UTF-8");
+	setlocale (LC_ALL, "");
+	// bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	// bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	// textdomain (GETTEXT_PACKAGE);
+
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
 	builder->get_widget("box", box);
@@ -55,7 +59,7 @@ void HuffmanzipWindow::startBtnClicked()
 	fileselect->set_sensitive(false);
 	destdir->set_sensitive(false);
 	isreverse->set_sensitive(false);
-	label->set_text("请稍候");
+	label->set_text(_("Processing"));
 	progressbar->set_visible(true);
 	progressbar->set_fraction(0.1);
 	std::string originFilePath = fileselect->get_filename();
@@ -79,16 +83,16 @@ void HuffmanzipWindow::startBtnClicked()
 			orgTree tree(originFilePath.c_str());
 			tree.get_encode_result(destFilePath.c_str());
 		}
-		label->set_text("完成");
+		label->set_text(_("Done"));
 	}
 	catch (const char *e)
 	{
-		label->set_text("出现未知错误");
+		label->set_text(_("Error"));
 		std::cerr << e << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		label->set_text("出现未知错误");
+		label->set_text(_("Error"));
 	}
 	startbtn->set_sensitive(true);
 	fileselect->set_sensitive(true);

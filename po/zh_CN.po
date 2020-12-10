@@ -1,0 +1,51 @@
+# zh_CN.po
+# Copyright 2020 Bobby Rong
+# This file is distributed under the same license as the top.bobby285271.huffmanzip package.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"POT-Creation-Date: 2020-12-10 22:50+0800\n"
+"PO-Revision-Date: 2020-12-10 22:50+0800\n"
+"Last-Translator: Bobby Rong <admin@bobby285271.top>\n"
+"Language-Team: Bobby Rong <admin@bobby285271.top>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/top.bobby285271.huffmanzip.desktop.in:3
+msgid "huffmanzip"
+msgstr "压缩软件"
+
+#: src/huffmanzip-window.ui:12
+msgid "Ready"
+msgstr "就绪"
+
+#: src/huffmanzip-window.ui:41
+msgid "Start"
+msgstr "开始"
+
+#: src/huffmanzip-window.ui:52
+msgid "Choose a source file"
+msgstr "选择源文件"
+
+#: src/huffmanzip-window.ui:64
+msgid "Choose a target folder"
+msgstr "选择目标路径"
+
+#: src/huffmanzip-window.ui:72
+msgid "Reverse"
+msgstr "逆向"
+
+#: src/huffmanzip-window.cpp:57
+msgid "Processing"
+msgstr "处理中"
+
+#: src/huffmanzip-window.cpp:81
+msgid "Done"
+msgstr "完成"
+
+#: src/huffmanzip-window.cpp:85 src/huffmanzip-window.cpp:90
+msgid "Error"
+msgstr "出错"
