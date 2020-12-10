@@ -69,17 +69,29 @@ void HuffmanzipWindow::startBtnClicked()
 
 	if (file_ifstream_check(originFilePath.c_str()) && file_ofstream_check(destFilePath.c_str()))
 	{
-		if (isreverse->get_active())
+		try
 		{
-			destTree tree(originFilePath.c_str());
-			tree.get_decode_result(destFilePath.c_str());
+			if (isreverse->get_active())
+			{
+				destTree tree(originFilePath.c_str());
+				tree.get_decode_result(destFilePath.c_str());
+			}
+			else
+			{
+				orgTree tree(originFilePath.c_str());
+				tree.get_encode_result(destFilePath.c_str());
+			}
+			label->set_text("完成");
 		}
-		else
+		catch (const char *e)
 		{
-			orgTree tree(originFilePath.c_str());
-			tree.get_encode_result(destFilePath.c_str());
+			label->set_text("出现未知错误");
+			std::cerr << e << std::endl;
 		}
-		label->set_text("完成");
+		catch (const std::exception &e)
+		{
+			label->set_text("出现未知错误");
+		}
 	}
 	else
 	{

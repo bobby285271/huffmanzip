@@ -29,14 +29,27 @@ orgTree::orgTree(
 void orgTree::read_origin_file(
     const char *origin_file)
 {
+    if (!strlen(origin_file) || origin_file[0] != '/')
+    {
+        throw "failed check: origin_file";
+    }
     std::ios::sync_with_stdio(false);
     std::ifstream infile_stream(
         origin_file,
         std::ios::in | std::ios::binary);
+    if (!infile_stream)
+    {
+        throw "failed check: infile_stream";
+    }
 
     // Change the read position to the end to get the file size.
     infile_stream.seekg(0, std::ios::end);
     std::streampos file_len = infile_stream.tellg();
+    if (!file_len)
+    {
+        throw "failed check: file_len";
+    }
+
     infile_stream.seekg(0, std::ios::beg);
 
     file_str.reserve(file_len);
@@ -135,14 +148,22 @@ void orgTree::get_encode_result(
     std::ofstream outfile_stream(
         dest_file,
         std::ios::out | std::ios::binary);
+    if (!outfile_stream)
+    {
+        throw "failed check: outfile_stream";
+    }
+
     int64_t tree_node_set_size = tree_node_set.size();
-    outfile_stream.write((char *)&tree_node_set_size,
-                         sizeof(int64_t));
-    outfile_stream.write((char *)&tree_node_set[0],
-                         tree_node_set.size() * sizeof(node));
+    outfile_stream.write(
+        (char *)&tree_node_set_size,
+        sizeof(int64_t));
+    outfile_stream.write(
+        (char *)&tree_node_set[0],
+        tree_node_set.size() * sizeof(node));
     int64_t encoded_file_str_size = encoded_file_str.size();
-    outfile_stream.write((char *)&encoded_file_str_size,
-                         sizeof(int64_t));
+    outfile_stream.write(
+        (char *)&encoded_file_str_size,
+        sizeof(int64_t));
 
     // Convert a 8-length binary string into a `char`.
     while (encoded_file_str.size() % 8)

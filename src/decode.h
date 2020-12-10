@@ -22,6 +22,7 @@
 #include <string>
 #include <fstream>
 #include <utility>
+#include <cstring>
 #include "node.h"
 #include "string-convert.h"
 

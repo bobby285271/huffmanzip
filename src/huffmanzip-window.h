@@ -28,10 +28,9 @@
 #include <gtkmm/progressbar.h>
 #include <gtkmm/box.h>
 #include <glib/gi18n.h>
-#include <cassert>
+#include <iostream>
 #include "encode.h"
 #include "decode.h"
-#include "testio.h"
 
 class HuffmanzipWindow : public Gtk::Window
 {
