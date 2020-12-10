@@ -21,6 +21,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <map>
 #include <queue>
 #include <stack>
@@ -30,15 +31,18 @@
 class orgTree
 {
 private:
-    std::string str;
-    std::map<char, int> arr;
-    std::vector<node> T;
-    std::map<char, std::string> Code;
-    void readOriginFile(char *org);
-    void buildTree();
-    void Hfmcode();
+    std::string file_str;
+    std::map<char, int64_t> char_cnt_table;
+    std::vector<node> tree_node_set;
+    std::map<char, std::string> huffman_code_to_char;
+    void read_origin_file(
+        const char *origin_file);
+    void build_huffman_tree();
+    void initial_huffman_code_to_char();
 
 public:
-    orgTree(char *org);
-    void getEncodeResult(char *file);
+    orgTree(
+        const char *origin_file);
+    void get_encode_result(
+        const char *dest_file);
 };

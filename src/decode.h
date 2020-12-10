@@ -28,12 +28,15 @@
 class destTree
 {
 private:
-    std::vector<node> T;
-    std::string str;
-    int sur;
-    void readCompressedFile(char *file);
+    std::vector<node> tree_node_set;
+    std::string encoded_file_str;
+    int64_t encoded_file_str_size;
+    void read_compressed_file(
+        const char *origin_file);
 
 public:
-    destTree(char *file);
-    void getDecodeResult(char *file);
+    destTree(
+        const char *origin_file);
+    void get_decode_result(
+        const char *dest_file);
 };
