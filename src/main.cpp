@@ -40,6 +40,11 @@ on_activate(Glib::RefPtr<Gtk::Application> app)
 
 int main(int argc, char *argv[])
 {
+	setlocale (LC_ALL, "");
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+
 	int ret;
 
 	// Create a new Gtk::Application. The application manages our main loop,

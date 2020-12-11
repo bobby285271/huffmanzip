@@ -18,6 +18,9 @@
 
 #pragma once
 
+#define GETTEXT_PACKAGE "huffmanzip"
+#define GNOMELOCALEDIR "/home/bobby285271/.cache/gnome-builder/projects/huffmanzip/flatpak/staging/x86_64-master/files/share/locale"
+
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
 #include <gtkmm/label.h>

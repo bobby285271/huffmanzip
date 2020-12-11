@@ -30,11 +30,6 @@ HuffmanzipWindow::HuffmanzipWindow()
 	  isreverse(nullptr),
 	  box(nullptr)
 {
-	setlocale (LC_ALL, "");
-	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
-	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-	textdomain (GETTEXT_PACKAGE);
-
 	builder = Gtk::Builder::create_from_resource("/top/bobby285271/huffmanzip/huffmanzip-window.ui");
 	builder->get_widget("headerbar", headerbar);
 	builder->get_widget("box", box);
