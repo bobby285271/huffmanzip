@@ -170,6 +170,6 @@ void orgTree::get_encode_result(
     {
         encoded_file_str += '0';
     }
-    outfile_stream << binToChar(encoded_file_str);
+    outfile_stream << bin_to_char(encoded_file_str);
     outfile_stream.close();
 }

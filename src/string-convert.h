@@ -21,5 +21,5 @@
 #include <string>
 #include <bitset>
 
-std::string binToChar(std::string &s);
-std::string charToBin(std::string &s);
+std::string bin_to_char(std::string &s);
+std::string char_to_bin(std::string &s);

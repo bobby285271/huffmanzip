@@ -61,7 +61,7 @@ void destTree::read_compressed_file(
                             std::istreambuf_iterator<char>());
 
     // Convert each `char` into a 8-length binary string.
-    encoded_file_str = charToBin(encoded_file_str);
+    encoded_file_str = char_to_bin(encoded_file_str);
     infile_stream.close();
 }
 

@@ -18,7 +18,7 @@
 
 #include "string-convert.h"
 
-std::string binToChar(std::string &s)
+std::string bin_to_char(std::string &s)
 {
     std::string t;
     for (size_t i = 0; i < s.size(); i += 8)
@@ -29,7 +29,7 @@ std::string binToChar(std::string &s)
     return t;
 }
 
-std::string charToBin(std::string &s)
+std::string char_to_bin(std::string &s)
 {
     std::string t;
     for (char &c : s)
