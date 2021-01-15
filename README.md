@@ -4,6 +4,13 @@
 
 ## 构建
 
-使用常规的 Flatpak 软件包构建方式构建即可，[相关文档](https://docs.flatpak.org/)。
+使用 GNOME Builder。
 
-也可使用 GNOME Builder（推荐）。
+由于本蒟蒻不会 Meson，部分路径被本蒟蒻写死了，在开始构建前，你可能需要编辑：
+
+* `src/huffmanzip-window.h`
+* `top.bobby285271.huffmanzip.json`
+
+## 资源
+
+https://developer.gnome.org/gtkmm/stable/
