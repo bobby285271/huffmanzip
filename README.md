@@ -6,4 +6,5 @@
 
 ```
 $ nix-build
+$ ./result/bin/huffmanzip
 ```
