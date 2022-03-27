@@ -17,6 +17,7 @@
  */
 
 #include "huffmanzip-window.h"
+#include "config.h"
 #include <memory>
 
 static void
@@ -41,7 +42,7 @@ on_activate(Glib::RefPtr<Gtk::Application> app)
 int main(int argc, char *argv[])
 {
 	setlocale (LC_ALL, "");
-	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 

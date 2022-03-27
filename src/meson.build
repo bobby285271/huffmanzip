@@ -18,6 +18,7 @@ huffmanzip_sources += gnome.compile_resources('huffmanzip-resources',
 )
 
 executable('huffmanzip', huffmanzip_sources,
+  include_directories: config_h_dir,
   dependencies: huffmanzip_deps,
   install: true,
 )

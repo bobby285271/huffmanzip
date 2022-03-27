@@ -7,6 +7,17 @@ project('huffmanzip', ['cpp', 'c'],
   ],
 )
 
+config_data = configuration_data()
+config_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+
+configure_file(
+  output: 'config.h',
+  configuration: config_data
+)
+
+config_h_dir = include_directories('.')
+
 i18n = import('i18n')
 gnome = import('gnome')
 
