@@ -4,5 +4,13 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 	<description>
+		<p>huffmanzip is an useless GTK file archiver.</p>
 	</description>
+	<releases>
+		<release version="0.1.0" date="2020-12-11" urgency="medium">
+			<description>
+				<p>Initial release.</p>
+			</description>
+		</release>
+	</releases>
 </component>
