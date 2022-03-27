@@ -7,6 +7,11 @@
 		<p>huffmanzip is an useless GTK file archiver.</p>
 	</description>
 	<releases>
+		<release version="0.1.1" date="2022-03-27" urgency="medium">
+			<description>
+				<p>Fix various hardcode paths.</p>
+			</description>
+		</release>
 		<release version="0.1.0" date="2020-12-11" urgency="medium">
 			<description>
 				<p>Initial release.</p>
