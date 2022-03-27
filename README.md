@@ -4,7 +4,16 @@
 
 ## 构建与运行
 
+依赖：
+
+- gtkmm-3.0 >= 3.18
+
 ```
 $ nix-build
 $ ./result/bin/huffmanzip
 ```
+
+## 问与答
+
+- GTK 4 when?
+- 在等 [elementary-gtk-theme](https://github.com/elementary/stylesheet) 发新版（逃）
